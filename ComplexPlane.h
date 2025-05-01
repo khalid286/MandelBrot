@@ -22,6 +22,7 @@ public:
 	void zoomIn();
 	void zoomOut();
 	void setCenter(sf::Vector2i mousePixel);
+	void setMouseLocation(sf::Vector2i mousePixel);
 	void loadText(sf::Text& text);
 	void updateRender();
 
