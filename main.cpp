@@ -6,12 +6,15 @@ using namespace sf;
 
 int main()
 {
-	sf::VideoMode::getDesktopMode().width;
-	sf::VideoMode::getDesktopMode().height;
+	int w=sf::VideoMode::getDesktopMode().width/2;
+	int h=sf::VideoMode::getDesktopMode().height/2;
 
-	sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "MandelBrot!", sf::Style::Default);
+	
 
-	ComplexPlane Myplane(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height);
+	sf::RenderWindow window(VideoMode(w,h), "MandelBrot!");
+	window.setFramerateLimit(60);
+
+	ComplexPlane Myplane(w, h);
 
 
 	sf::Font font;
