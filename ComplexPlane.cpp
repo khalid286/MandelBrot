@@ -9,7 +9,7 @@ ComplexPlane::ComplexPlane(int pixelWidth, int pixelHeight)
 	//Calculates and assigns aspect ratio of monitor.
 	m_aspectRatio = (float)pixelHeight / (float)pixelWidth;
 	//Sets plane center to coord 0,0.
-	m_plane_center = { 0,0 };
+	m_plane_center = { -2,0 };
 	//Assign plane size
 	m_plane_size = { BASE_WIDTH,BASE_HEIGHT * m_aspectRatio };
 	//Assigns zoom count to zero.
@@ -81,7 +81,7 @@ void ComplexPlane::setMouseLocation(sf::Vector2i mousePixel)
 void ComplexPlane::loadText(sf::Text& text)
 {
 	std::stringstream ss;
-	ss << "Mandlbrot Set\n";
+	ss << "Mandelbrot Set\n";
 	ss << "Center: (" << m_plane_center.x << "," << m_plane_center.y << ")\n";
 	ss << "Cursor: (" << m_mouseLocation.x << ", " << m_mouseLocation.y << ")\n";
 	ss << "Left click to zoom in.\n";
@@ -112,8 +112,8 @@ void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf:
 	{
 		float t = static_cast<float>(count) / MAX_ITER;
 		r = static_cast<sf::Uint8>(9 * (1 - t) * t * t * t * 255);
-		g = static_cast<sf::Uint8>(15 * (1 - t) * t * t * t * 255);
-		b = static_cast<sf::Uint8>(8.5 * (1 - t) * t * t * t * 255);
+		g = static_cast<sf::Uint8>(15 * (1 - t) * (1-t) * t * t * 255);
+		b = static_cast<sf::Uint8>(8.5 * (1 - t) * (1-t) * t * t * 255);
 	}
 }
 //Map Pixel to Coords function
